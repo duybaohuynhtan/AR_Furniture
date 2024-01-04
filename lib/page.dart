@@ -56,11 +56,11 @@ class SecondPage extends StatelessWidget {
       )),
       body: Column(
         children: [
-          Expanded(
-            child: BabylonJSViewer(
-              //backgroundColor: Color.fromARGB(0xFF, 0xEE, 0xEE, 0xEE),
-              src: 'assets/sofa.glb',
-              // ar: true,
+          const Expanded(
+            child: ModelViewer(
+              backgroundColor: Color.fromARGB(0xFF, 0xEE, 0xEE, 0xEE),
+              src: 'assets/optimus_prime.glb',
+              ar: true,
               //autoRotate: true,
               // disableZoom: true,
               //cameraControls: true,
