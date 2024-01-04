@@ -7,8 +7,10 @@ environment:
   sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
+  babylonjs_viewer: ^1.0.1
   flutter:
     sdk: flutter
+  model_viewer_plus: ^1.7.0
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +19,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/

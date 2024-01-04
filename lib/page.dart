@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:model_viewer_plus/model_viewer_plus.dart';
+import 'package:babylonjs_viewer/babylonjs_viewer.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({Key? key}) : super(key: key);
@@ -55,11 +57,13 @@ class SecondPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: Center(
-              child: Hero(
-                tag: heroTag,
-                child: Image.network(_images[heroTag]),
-              ),
+            child: BabylonJSViewer(
+              //backgroundColor: Color.fromARGB(0xFF, 0xEE, 0xEE, 0xEE),
+              src: 'assets/sofa.glb',
+              // ar: true,
+              //autoRotate: true,
+              // disableZoom: true,
+              //cameraControls: true,
             ),
           ),
           Container(
