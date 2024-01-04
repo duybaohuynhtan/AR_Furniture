@@ -81,7 +81,7 @@ class SecondPage extends StatelessWidget {
                       shadowColor: Colors.black.withOpacity(1),
                     ),
                     icon: const Icon(
-                      Icons.camera_alt_outlined,
+                      Icons.view_in_ar,
                       size: 30,
                     ),
                     label: const Text(
