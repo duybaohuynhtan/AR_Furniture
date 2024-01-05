@@ -7,84 +7,90 @@ class FirstPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: const Center(
-        child: Text(
-          "AR Furniture",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-        ),
-      )),
-      body: SingleChildScrollView(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: ListView.builder(
-                  itemCount: _images.length,
-                  physics: const ScrollPhysics(),
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (BuildContext context, int index) {
-                    return InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => SecondPage(heroTag: index)));
-                      },
-                      child: Card(
-                        elevation: 10,
-                        shadowColor: Colors.black45,
-                        margin: const EdgeInsets.all(10),
-                        shape: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide:
-                                const BorderSide(color: Colors.black26)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 100,
-                                width: 100,
-                                color: Colors.white,
-                                child: Image.asset(
-                                  _images[index],
-                                  fit: BoxFit.cover,
+    return MaterialApp(
+      title: 'AR Furniture App',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(brightness: Brightness.dark),
+      home: Scaffold(
+        appBar: AppBar(
+            title: const Center(
+          child: Text(
+            "AR Furniture",
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+        )),
+        body: SingleChildScrollView(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ListView.builder(
+                    itemCount: _images.length,
+                    physics: const ScrollPhysics(),
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  SecondPage(heroTag: index)));
+                        },
+                        child: Card(
+                          elevation: 10,
+                          shadowColor: Colors.black45,
+                          margin: const EdgeInsets.all(10),
+                          shape: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide:
+                                  const BorderSide(color: Colors.black26)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: 100,
+                                  width: 100,
+                                  color: Colors.white,
+                                  child: Image.asset(
+                                    _images[index],
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Product $index \n',
-                                    style: const TextStyle(fontSize: 20),
-                                  ),
-                                  const Text(
-                                    '123,456 \t',
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.greenAccent),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Product $index \n',
+                                      style: const TextStyle(fontSize: 20),
+                                    ),
+                                    const Text(
+                                      '123,456 \t',
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.greenAccent),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ]),
+              ]),
+        ),
       ),
     );
   }
@@ -114,33 +120,14 @@ class SecondPage extends StatelessWidget {
               cameraControls: true,
             ),
           ),
+          const SizedBox(
+            height: 100,
+          ),
           Container(
-            margin: const EdgeInsets.only(bottom: 400),
+            margin: const EdgeInsets.only(bottom: 300),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton.icon(
-                    onPressed: () {
-                      print('Virtual Try-On!');
-                    },
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white,
-                      backgroundColor: Colors.blueAccent,
-                      padding: const EdgeInsets.all(10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40)),
-                      elevation: 10,
-                      shadowColor: Colors.black.withOpacity(1),
-                    ),
-                    icon: const Icon(
-                      Icons.view_in_ar,
-                      size: 30,
-                    ),
-                    label: const Text(
-                      'Virtual Try-On!',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    )),
                 ElevatedButton.icon(
                     onPressed: () {
                       print('Add to Cart!');
@@ -155,11 +142,33 @@ class SecondPage extends StatelessWidget {
                       shadowColor: Colors.black.withOpacity(1),
                     ),
                     icon: const Icon(
-                      Icons.add_shopping_cart,
+                      Icons.shopping_cart_outlined,
                       size: 30,
                     ),
                     label: const Text(
-                      'Add to Cart',
+                      'Add to Cart!',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    )),
+                ElevatedButton.icon(
+                    onPressed: () {
+                      print('Buy now!');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.blueAccent,
+                      padding: const EdgeInsets.all(10),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40)),
+                      elevation: 10,
+                      shadowColor: Colors.black.withOpacity(1),
+                    ),
+                    icon: const Icon(
+                      Icons.shopping_cart_checkout_outlined,
+                      size: 30,
+                    ),
+                    label: const Text(
+                      'Buy now!',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     )),
