@@ -12,8 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'AR Furniture App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primarySwatch: Colors.blue, platform: TargetPlatform.android),
+      theme: ThemeData(brightness: Brightness.dark),
       home: const FirstPage(),
     );
   }
