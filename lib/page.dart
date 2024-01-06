@@ -3,7 +3,8 @@ import 'package:model_viewer_plus/model_viewer_plus.dart';
 import 'package:babylonjs_viewer/babylonjs_viewer.dart';
 
 class FirstPage extends StatelessWidget {
-  const FirstPage({Key? key}) : super(key: key);
+  final List<List<dynamic>> productList;
+  const FirstPage({Key? key, required this.productList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class FirstPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ListView.builder(
-                    itemCount: _images.length,
+                    itemCount: productList.length,
                     physics: const ScrollPhysics(),
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
@@ -35,8 +36,8 @@ class FirstPage extends StatelessWidget {
                       return InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  SecondPage(heroTag: index)));
+                              builder: (context) => SecondPage(
+                                  heroTag: index, productList: productList)));
                         },
                         child: Card(
                           elevation: 10,
@@ -57,7 +58,7 @@ class FirstPage extends StatelessWidget {
                                   width: 100,
                                   color: Colors.white,
                                   child: Image.asset(
-                                    _images[index],
+                                    productList[index][2],
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -69,12 +70,17 @@ class FirstPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Product $index \n',
-                                      style: const TextStyle(fontSize: 20),
+                                      productList[index][0],
+                                      style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
                                     ),
-                                    const Text(
-                                      '123,456 \t',
-                                      style: TextStyle(
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      '${productList[index][1]} ¥',
+                                      style: const TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.greenAccent),
@@ -98,7 +104,10 @@ class FirstPage extends StatelessWidget {
 
 class SecondPage extends StatelessWidget {
   final int heroTag;
-  const SecondPage({super.key, required this.heroTag});
+  final List<List<dynamic>> productList;
+
+  const SecondPage(
+      {super.key, required this.heroTag, required this.productList});
 
   @override
   Widget build(BuildContext context) {
@@ -112,8 +121,8 @@ class SecondPage extends StatelessWidget {
         children: [
           Expanded(
             child: ModelViewer(
-              backgroundColor: Color.fromARGB(0xFF, 0xEE, 0xEE, 0xEE),
-              src: _model[heroTag],
+              backgroundColor: const Color.fromARGB(0xFF, 0xEE, 0xEE, 0xEE),
+              src: productList[heroTag][3],
               ar: true,
               arPlacement: ArPlacement.floor,
               autoRotate: true,
@@ -181,27 +190,27 @@ class SecondPage extends StatelessWidget {
   }
 }
 
-final List<String> _images = [
-  'assets/products/1.png',
-  'assets/products/2.png',
-  'assets/products/3.png',
-  'assets/products/4.png',
-  'assets/products/5.png',
-  'assets/products/6.png',
-  'assets/products/7.png',
-  'assets/products/8.png',
-  'assets/products/9.png',
-  'assets/products/10.png'
-];
-final List<String> _model = [
-  'assets/models/1.glb',
-  'assets/models/2.glb',
-  'assets/models/3.glb',
-  'assets/models/4.glb',
-  'assets/models/5.glb',
-  'assets/models/6.glb',
-  'assets/models/7.glb',
-  'assets/models/8.glb',
-  'assets/models/9.glb',
-  'assets/models/10.glb'
-];
+// final List<String> _images = [
+//   'assets/products/1.png',
+//   'assets/products/2.png',
+//   'assets/products/3.png',
+//   'assets/products/4.png',
+//   'assets/products/5.png',
+//   'assets/products/6.png',
+//   'assets/products/7.png',
+//   'assets/products/8.png',
+//   'assets/products/9.png',
+//   'assets/products/10.png'
+// ];
+// final List<String> _model = [
+//   'assets/models/1.glb',
+//   'assets/models/2.glb',
+//   'assets/models/3.glb',
+//   'assets/models/4.glb',
+//   'assets/models/5.glb',
+//   'assets/models/6.glb',
+//   'assets/models/7.glb',
+//   'assets/models/8.glb',
+//   'assets/models/9.glb',
+//   'assets/models/10.glb'
+// ];

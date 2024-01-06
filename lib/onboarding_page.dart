@@ -24,7 +24,9 @@ final pages = [
 ];
 
 class ConcentricAnimationOnboarding extends StatelessWidget {
-  const ConcentricAnimationOnboarding({Key? key}) : super(key: key);
+  final List<List<dynamic>> productList;
+  const ConcentricAnimationOnboarding({Key? key, required this.productList})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class ConcentricAnimationOnboarding extends StatelessWidget {
         itemBuilder: (index) {
           final page = pages[index % pages.length];
           return SafeArea(
-            child: _Page(page: page),
+            child: _Page(page: page, productList: productList),
           );
         },
       ),
@@ -74,8 +76,10 @@ class PageData {
 
 class _Page extends StatelessWidget {
   final PageData page;
+  final List<List<dynamic>> productList;
 
-  const _Page({Key? key, required this.page}) : super(key: key);
+  const _Page({Key? key, required this.page, required this.productList})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -117,8 +121,10 @@ class _Page extends StatelessWidget {
             shadowColor: Colors.black.withOpacity(1),
           ),
           onPressed: () {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const FirstPage()));
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => FirstPage(productList: productList)));
           },
           child: Text(
             "Buy Now!",
