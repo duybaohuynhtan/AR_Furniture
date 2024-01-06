@@ -109,7 +109,7 @@ class _Page extends StatelessWidget {
                 textStyle:
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onPressed: () {
-              Navigator.of(context).push(
+              Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => const FirstPage()));
             },
             child: const Text("Skip"))
