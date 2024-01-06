@@ -34,15 +34,15 @@ class ConcentricAnimationOnboarding extends StatelessWidget {
         colors: pages.map((p) => p.bgColor).toList(),
         radius: screenWidth * 0.1,
         nextButtonBuilder: (context) => Padding(
-          padding: const EdgeInsets.only(left: 3), // visual center
+          padding: const EdgeInsets.all(5), // visual center
           child: Icon(
             Icons.navigate_next,
-            size: screenWidth * 0.08,
+            size: screenWidth * 0.1,
           ),
         ),
         // itemCount: pages.length,
-        // opacityFactor: 2.0,
-        scaleFactor: 2,
+        // opacityFactor: 10.0,
+        // scaleFactor: 2,
         // verticalPosition: 0.7,
         // direction: Axis.vertical,
         // itemCount: pages.length,
@@ -84,8 +84,8 @@ class _Page extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          padding: const EdgeInsets.all(16.0),
-          margin: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(30.0),
+          margin: const EdgeInsets.all(50.0),
           decoration:
               BoxDecoration(shape: BoxShape.circle, color: page.textColor),
           child: Icon(
@@ -98,21 +98,37 @@ class _Page extends StatelessWidget {
           page.title ?? "",
           style: TextStyle(
               color: page.textColor,
-              fontSize: screenHeight * 0.035,
+              fontSize: screenHeight * 0.04,
               fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
-        TextButton(
-            style: TextButton.styleFrom(
-                visualDensity: VisualDensity.comfortable,
-                foregroundColor: Colors.white,
-                textStyle:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const FirstPage()));
-            },
-            child: const Text("Skip"))
+        const SizedBox(
+          height: 10,
+        ),
+        ElevatedButton(
+          style: TextButton.styleFrom(
+            alignment: Alignment.bottomCenter,
+            foregroundColor: page.bgColor,
+            backgroundColor: page.textColor,
+            padding: const EdgeInsets.all(10),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            elevation: 10,
+            shadowColor: Colors.black.withOpacity(1),
+          ),
+          onPressed: () {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const FirstPage()));
+          },
+          child: Text(
+            "Buy Now!",
+            style: TextStyle(
+                fontSize: screenHeight * 0.02, fontWeight: FontWeight.bold),
+          ),
+        ),
+        const SizedBox(
+          height: 100,
+        ),
       ],
     );
   }
