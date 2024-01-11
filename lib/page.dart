@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
-import 'package:babylonjs_viewer/babylonjs_viewer.dart';
+import 'package:animations/animations.dart';
 
 class FirstPage extends StatelessWidget {
   final List<List<dynamic>> productList;
@@ -37,7 +37,7 @@ class FirstPage extends StatelessWidget {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => SecondPage(
-                                  heroTag: index, productList: productList)));
+                                  index: index, productList: productList)));
                         },
                         child: Card(
                           elevation: 10,
@@ -103,18 +103,17 @@ class FirstPage extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
-  final int heroTag;
+  final int index;
   final List<List<dynamic>> productList;
 
-  const SecondPage(
-      {super.key, required this.heroTag, required this.productList});
+  const SecondPage({super.key, required this.index, required this.productList});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           title: Text(
-        "Product $heroTag",
+        productList[index][0],
         style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
       )),
       body: Column(
@@ -122,7 +121,7 @@ class SecondPage extends StatelessWidget {
           Expanded(
             child: ModelViewer(
               backgroundColor: const Color.fromARGB(0xFF, 0xEE, 0xEE, 0xEE),
-              src: productList[heroTag][3],
+              src: productList[index][3],
               ar: true,
               arPlacement: ArPlacement.floor,
               autoRotate: true,
@@ -189,28 +188,3 @@ class SecondPage extends StatelessWidget {
     );
   }
 }
-
-// final List<String> _images = [
-//   'assets/products/1.png',
-//   'assets/products/2.png',
-//   'assets/products/3.png',
-//   'assets/products/4.png',
-//   'assets/products/5.png',
-//   'assets/products/6.png',
-//   'assets/products/7.png',
-//   'assets/products/8.png',
-//   'assets/products/9.png',
-//   'assets/products/10.png'
-// ];
-// final List<String> _model = [
-//   'assets/models/1.glb',
-//   'assets/models/2.glb',
-//   'assets/models/3.glb',
-//   'assets/models/4.glb',
-//   'assets/models/5.glb',
-//   'assets/models/6.glb',
-//   'assets/models/7.glb',
-//   'assets/models/8.glb',
-//   'assets/models/9.glb',
-//   'assets/models/10.glb'
-// ];

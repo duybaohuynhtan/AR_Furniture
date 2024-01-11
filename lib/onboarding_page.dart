@@ -17,7 +17,7 @@ final pages = [
   ),
   const PageData(
     icon: Icons.view_in_ar_outlined,
-    title: "Try in your space",
+    title: "View in your space",
     bgColor: Color(0xffffffff),
     textColor: Color(0xff3b1790),
   ),
