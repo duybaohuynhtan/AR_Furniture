@@ -10,8 +10,10 @@ void main() async {
   );
   List<List<dynamic>> productList = const CsvToListConverter().convert(csvData);
 
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: ConcentricAnimationOnboarding(productList: productList),
-  ));
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ConcentricAnimationOnboarding(productList: productList),
+    ),
+  );
 }
