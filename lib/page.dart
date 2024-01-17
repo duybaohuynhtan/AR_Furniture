@@ -147,7 +147,7 @@ class SecondPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)),
                       elevation: 10,
                       shadowColor: Colors.black.withOpacity(1),
-                    )
+                    ),
                     icon: const Icon(
                       Icons.shopping_cart_outlined,
                       size: 30,
