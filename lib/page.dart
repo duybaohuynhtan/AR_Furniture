@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
-import 'package:animations/animations.dart';
 
 class FirstPage extends StatelessWidget {
   final List<List<dynamic>> productList;
@@ -148,7 +147,7 @@ class SecondPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)),
                       elevation: 10,
                       shadowColor: Colors.black.withOpacity(1),
-                    ),
+                    )
                     icon: const Icon(
                       Icons.shopping_cart_outlined,
                       size: 30,
