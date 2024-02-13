@@ -20,6 +20,6 @@ void main() async {
   );
 
   runApp(
-    IntroScreen(),
+    const IntroScreen(),
   );
 }
