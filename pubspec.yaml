@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
+  searchable_listview:  2.10.0
   babylonjs_viewer: ^1.0.1
   flutter:
     sdk: flutter
@@ -14,6 +15,13 @@ dependencies:
   concentric_transition: ^1.0.3
   csv: ^5.1.1
   animations: ^2.0.11
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  firebase_ui_auth: ^1.12.1
+  google_sign_in: ^6.2.1
+  firebase_ui_oauth_google: ^1.2.17
+  provider: ^6.1.1
+  cloud_firestore: ^4.14.0
 
 dev_dependencies:
   flutter_test:
