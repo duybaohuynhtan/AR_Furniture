@@ -5,7 +5,7 @@
 [![Dart](https://img.shields.io/badge/Dart-3.2.3-0175C2?logo=dart)](https://dart.dev/)
 [![Firebase](https://img.shields.io/badge/Firebase-2.24.2-FFCA28?logo=firebase)](https://firebase.google.com/)
 
-AR Furniture App is a modern e-commerce application that leverages Augmented Reality technology to help users visualize furniture in their space before making a purchase decision. The app combines cutting-edge AR capabilities with an intuitive shopping experience, allowing users to browse a diverse catalog of furniture items and see how they would look in their actual environment through their mobile device's camera. With seamless Firebase integration for real-time data synchronization and secure Google authentication, users can enjoy a smooth shopping experience from product visualization to checkout.
+AR Furniture App is an e-commerce application that helps users shop for furniture by viewing products in their own space using AR technology. The app combines a simple shopping experience with real-time 3D visualization, allowing users to see how furniture fits and looks in their home before buying.
 
 ## 📑 Table of Contents
 - [🛋️ AR Furniture App](#️-ar-furniture-app)
